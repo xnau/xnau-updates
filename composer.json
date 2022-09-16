@@ -1,0 +1,21 @@
+{
+  "name": "xnau/xnau-updates",
+  "description": "provides plugin update services to Participants Database",
+  "type": "wordpress-plugin",
+  "require": {
+    "yahnis-elsts/plugin-update-checker": "^4.10"
+  },
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Roland Barker",
+      "email": "webdesign@xnau.com",
+      "homepage": "https://xnau.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "extra": {
+  },
+  "require-dev": {
+  }
+}

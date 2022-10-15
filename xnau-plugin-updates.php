@@ -21,6 +21,11 @@ class xnau_plugin_updates {
   const name = 'xnau-plugin-updates';
 
   /**
+   * @var string  URL for the aux plugin updates
+   */
+  const update_url = 'https://xnau.com/xnau-updates/';
+
+  /**
    * 
    */
   public function __construct()
@@ -51,9 +56,9 @@ class xnau_plugin_updates {
     if ( apply_filters( 'pdbaux-enable_auto_updates', true ) && class_exists( 'PDb_Aux_Plugin' ) )
     {
 
-      $update_url = PDb_Aux_Plugin::update_url . '?action=get_metadata&slug=' . $plugin_name;
+      $update_url = self::update_url . '?action=get_metadata&slug=' . $plugin_name;
 
-      Participants_Db::debug_log( __FUNCTION__ . ': initializing Aux Plugin Updater for ' . $plugin_name, 3 );
+      // Participants_Db::debug_log( __FUNCTION__ . ': initializing Aux Plugin Updater for ' . $plugin_name, 3 );
 
       $update_checker = \Puc_v4_Factory::buildUpdateChecker(
                       $update_url, $plugin_file, $plugin_name

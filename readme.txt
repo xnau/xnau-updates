@@ -20,5 +20,5 @@ Provides updating services to xnau add-on plugins
 = 1.0 =
 * initial release
 
-= 1.1 =
+= 1.3 =
 * moved the PDb_Aux_Plugin::$updates_url constant to this plugin

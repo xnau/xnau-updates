@@ -1,7 +1,7 @@
 === xnau Plugin Updates ===
 Contributors: xnau
 Requires at least: 5.0
-Tested up to: 6.0.2
+Tested up to: 6.2
 Requires PHP: 7.4
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,8 +17,11 @@ Provides updating services to xnau add-on plugins
 
 == Changelog ==
 
-= 1.0 =
-* initial release
+= 1.5 =
+* updated the update checker library to version 5.0
 
 = 1.3 =
 * moved the PDb_Aux_Plugin::$updates_url constant to this plugin
+
+= 1.0 =
+* initial release

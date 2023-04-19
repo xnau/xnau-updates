@@ -2,7 +2,7 @@
 
 /*
  * Plugin Name: xnau Plugin Updates
- * Version: 1.4
+ * Version: 1.5
  * Description: provides update services to xnau plugins
  * Author: Roland Barker, xnau webdesign
  * Plugin URI: https://xnau.com/shop/combo-multisearch-plugin/

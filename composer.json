@@ -3,7 +3,7 @@
   "description": "provides plugin update services to Participants Database",
   "type": "wordpress-plugin",
   "require": {
-    "yahnis-elsts/plugin-update-checker": "^4.10"
+    "yahnis-elsts/plugin-update-checker": ">=5.0"
   },
   "license": "GPL-3.0-or-later",
   "authors": [

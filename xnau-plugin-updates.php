@@ -2,7 +2,7 @@
 
 /*
  * Plugin Name: xnau Plugin Updates
- * Version: 1.3
+ * Version: 1.4
  * Description: provides update services to xnau plugins
  * Author: Roland Barker, xnau webdesign
  * Plugin URI: https://xnau.com/shop/combo-multisearch-plugin/
@@ -12,6 +12,7 @@
  * 
  * Copyright 2022 Roland Barker xnau webdesign  (email : webdesign@xnau.com)
  */
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 class xnau_plugin_updates {
 
@@ -55,12 +56,12 @@ class xnau_plugin_updates {
      */
     if ( apply_filters( 'pdbaux-enable_auto_updates', true ) && class_exists( 'PDb_Aux_Plugin' ) )
     {
-
+      
       $update_url = self::update_url . '?action=get_metadata&slug=' . $plugin_name;
 
       // Participants_Db::debug_log( __FUNCTION__ . ': initializing Aux Plugin Updater for ' . $plugin_name, 3 );
 
-      $update_checker = \Puc_v4_Factory::buildUpdateChecker(
+      $update_checker = PucFactory::buildUpdateChecker(
                       $update_url, $plugin_file, $plugin_name
       );
 

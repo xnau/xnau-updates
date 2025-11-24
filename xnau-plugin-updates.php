@@ -2,17 +2,17 @@
 
 /*
  * Plugin Name: xnau Plugin Updates
- * Version: 1.6
+ * Version: 1.6.1
  * Description: provides update services to xnau plugins
  * Author: Roland Barker, xnau webdesign
- * Plugin URI: https://xnau.com/shop/combo-multisearch-plugin/
+ * Plugin URI: https://xnau.com/the-xnau-plugin-updater/
  * Text Domain: xnau-updates
  * Domain Path: /languages
  * License: GPL3
  * 
  * Copyright 2022 Roland Barker xnau webdesign  (email : webdesign@xnau.com)
  */
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+use YahnisElsts\PluginUpdateChecker\v5p6\PucFactory;
 
 class xnau_plugin_updates {
 
@@ -59,11 +59,12 @@ class xnau_plugin_updates {
       
       $update_url = self::update_url . '?action=get_metadata&slug=' . $plugin_name;
 
-      // Participants_Db::debug_log( __FUNCTION__ . ': initializing Aux Plugin Updater for ' . $plugin_name, 3 );
+      //Participants_Db::debug_log( __FUNCTION__ . ': initializing Aux Plugin Updater for ' . $plugin_name, 3 );
 
       $update_checker = PucFactory::buildUpdateChecker(
                       $update_url, $plugin_file, $plugin_name
       );
+      /** @var YahnisElsts\PluginUpdateChecker\v5p6\Plugin\UpdateChecker $update_checker */
 
       add_action( 'participants_database_uninstall', function () use ( $update_checker ) {
         $update_checker->resetUpdateState();

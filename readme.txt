@@ -1,7 +1,7 @@
 === xnau Plugin Updates ===
 Contributors: xnau
 Requires at least: 5.0
-Tested up to: 6.8.1
+Tested up to: 6.8.3
 Requires PHP: 7.4
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,6 +16,9 @@ Provides updating services to xnau add-on plugins
 5. The plugin will install itself. Click on "activate" to activate the plugin
 
 == Changelog ==
+
+= 1.7 =
+* now able to check and update xnau plugins while they are inactive
 
 = 1.6 =
 * updated the update checker library to version 5.6

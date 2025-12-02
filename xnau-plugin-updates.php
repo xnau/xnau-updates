@@ -49,6 +49,8 @@ class xnau_plugin_updates {
     }, 50 );
 
     add_action( 'load-plugins.php', [$this, 'register_deactivated_plugins'] );
+    
+    register_uninstall_hook(__FILE__, ['xnau_plugin_updates', 'uninstall'] );
   }
 
   /**
@@ -104,6 +106,11 @@ class xnau_plugin_updates {
     {
       // instantiating the UpdateChecker instance registers the plugin and checks for an update
       $checker = self::checker_instance( trailingslashit( WP_PLUGIN_DIR ) . $filepath, self::plugin_name( $filepath ) );
+      
+//      $info = $checker->requestInfo();
+//      /** @var YahnisElsts\PluginUpdateChecker\v5p6\Plugin\PluginInfo $info */
+//      
+//      error_log(__METHOD__.' plugin: '. $info->slug.' version: '. $info->version . ' installed: '. $checker->getInstalledVersion() );
     }
   }
 
@@ -128,7 +135,7 @@ class xnau_plugin_updates {
     $xnau_plugin_list = [];
 
     foreach ( $plugin_list as $filepath => $plugin_data )
-    {
+    { 
       /*
        * checking here for inactive xnau plugins that are also in the xnau repo
        */
@@ -200,8 +207,6 @@ class xnau_plugin_updates {
   /**
    * provides the plugin slug name given the plugin URI
    * 
-   * this compensates for some inconsistent naming of the plugin file in 
-   * relation to the plugin name
    * 
    * @param string $uri the plugin URI
    * @return string the plugin slug name
@@ -209,10 +214,21 @@ class xnau_plugin_updates {
   private static function plugin_name( $uri )
   {
     $parts = explode( '/', $uri );
-
-    $name = str_replace( '.php', '', end( $parts ) );
     
-    return strpos( $name, 'xnau-' ) !== 0 && strpos( $name, 'pdb-' ) !== 0 ? 'pdb-' . $name : $name;
+    array_pop( $parts );
+    
+    return end( $parts );
+  }
+  
+  /**
+   * uninstalls the plugin
+   * 
+   * clears transients on uninstall
+   */
+  public static function uninstall()
+  {
+    delete_transient(self::deactivated_plugins);
+    delete_transient(self::xnau_repo_plugins);
   }
 }
 

@@ -19,6 +19,7 @@ Provides updating services to xnau add-on plugins
 
 = 1.7 =
 * now able to check and update xnau plugins while they are inactive
+* full compatibility with multisite
 
 = 1.6 =
 * updated the update checker library to version 5.6

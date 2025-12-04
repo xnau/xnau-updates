@@ -106,7 +106,7 @@ class xnau_plugin_updates {
   {
     global $pagenow;
     
-    if ( is_admin() && in_array( $pagenow, ['plugins.php', 'plugin-install.php'] ) ) :
+    if ( is_admin() && in_array( $pagenow, ['plugins.php', 'plugin-install.php', 'admin-ajax.php'] ) ) :
     
     // add the composer autoload
     require_once dirname( __FILE__ ) . '/vendor/autoload.php';
